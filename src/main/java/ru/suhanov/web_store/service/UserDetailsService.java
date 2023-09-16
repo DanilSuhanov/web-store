@@ -16,6 +16,7 @@ import ru.suhanov.web_store.exception.DatabaseException;
 public class UserDetailsService {
     private final UserService userService;
 
+    @Bean
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
             return userService.findUserByUsername(username);
