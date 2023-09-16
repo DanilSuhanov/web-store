@@ -13,10 +13,9 @@ import ru.suhanov.web_store.exception.DatabaseException;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class UserDetailsService {
+public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
     private final UserService userService;
 
-    @Bean
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
             return userService.findUserByUsername(username);
